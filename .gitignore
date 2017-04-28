@@ -1,0 +1,9 @@
+.envrc
+.go-version
+bin/goimports
+bin/golint
+bin/tag-predict
+pkg/
+src/github.com
+src/golang.org
+vendor/

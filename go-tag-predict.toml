@@ -1,0 +1,94 @@
+#############################
+# ワーキング領域
+#############################
+cache_dir = "/tmp/go-tag-predict_dev/cache"
+tmp_dir = "/tmp/go-tag-predict_dev/tmp"
+
+#############################
+# 形態素解析エンジンの選択
+#############################
+# mecab or jumanpp
+tokenizer = "mecab"
+
+#############################
+# 学習処理のパラメータ
+#############################
+[supervised]
+# 学習ソースに使うブックマークデータのパス
+# del.icio.us / pinboard.inのExport形式のXMLファイル
+# 例)
+# <posts>
+#   <post href="https://..." description="title" tag="tag1 tag2 ..." />
+#   <post ... />
+# </posts>
+learning_source_file = "data/bookmarks-demo.xml"
+# 同時に処理する数
+parallels_count = 30
+# 出力バッファサイズ
+writer_buffer_size = 524288
+# 出力待ちQueueサイズ
+writer_queue_count = 64
+
+#############################
+# 分類処理のパラメータ
+#############################
+[predict]
+# カテゴライズ対象のRSSフィード 
+feed_urls = [
+    "https://feeds.pinboard.in/rss/popular/",
+    "https://feeds.pinboard.in/rss/popular/japanese",
+    "https://feeds.pinboard.in/rss/recent"
+]
+# 同時に処理する数
+parallels_count = 5
+# fasttext  predictの結果をフィルタリングする
+min_probability = 0.001
+
+#############################
+# fastText 
+#############################
+[fasttext]
+command = "/usr/local/bin/fasttext"
+supervised_args = [
+    "supervised",
+    "-input",
+    "{DATA_PATH}",
+    "-output",
+    "{MODEL_PATH}",
+    "-thread",
+    "4",
+    "-dim",
+    "200",
+    "-neg",
+    "25",
+    "-ws",
+    "8",
+    "-epoch",
+    "100"
+]
+predict_args = [
+    "predict-prob",
+    "{MODEL_PATH}",
+    "-",
+    "1"
+]
+
+#############################
+# Mecab
+#############################
+[mecab]
+# 辞書のパス
+# Recommend: mecab-ipadic-neologd (https://github.com/neologd/mecab-ipadic-neologd)
+dict_dir = "/usr/local/lib/mecab/dic/mecab-ipadic-neologd/build/mecab-ipadic-2.7.0-20070801-neologd-20161027/"
+
+#############################
+# juman++ (very slow)
+#############################
+[jumanpp]
+command = "/usr/local/bin/jumanpp"
+args = [
+    "--force-single-path",
+    "--dict",
+    "/usr/local/share/jumanpp-resource/dic"
+]
+token_separator = " "

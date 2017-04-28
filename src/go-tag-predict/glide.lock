@@ -1,0 +1,69 @@
+hash: 5c311a328e0eebc13a34563212c6204f23074a9726fcb4895f170d31dd6d19c4
+updated: 2017-04-27T22:19:32.172250706+09:00
+imports:
+- name: github.com/andybalholm/cascadia
+  version: 349dd0209470eabd9514242c688c403c0926d266
+- name: github.com/BurntSushi/toml
+  version: b26d9c308763d68093482582cea63d69be07a0f0
+- name: github.com/jaytaylor/html2text
+  version: f3b8a7ca0a23f0a806b2e1ad1247de39ecde54bf
+- name: github.com/mauidude/go-readability
+  version: 2f30b1a346f19ddab94ffe0cb788331be9399de2
+- name: github.com/mmcdole/gofeed
+  version: 303223474e837398b2f8a265e5572958bb5568c0
+  subpackages:
+  - atom
+  - extensions
+  - internal/shared
+  - rss
+- name: github.com/mmcdole/goxpp
+  version: e38884aa48c1952a416ba35f3c276e4f02f9b40e
+- name: github.com/pkg/errors
+  version: 645ef00459ed84a119197bfb8d8205042c6df63d
+- name: github.com/PuerkitoBio/goquery
+  version: e1271ee34c6a305e38566ecd27ae374944907ee9
+- name: github.com/shogo82148/go-mecab
+  version: d8f46400baf58d6ab5cd2547631d0dea9e2b42d2
+- name: github.com/ssor/bom
+  version: 6ed919a936d5ab554e4b40bc51f7c522488122c6
+- name: go.uber.org/atomic
+  version: 4e336646b2ef9fc6e47be8e21594178f98e5ebcf
+- name: go.uber.org/zap
+  version: 6a4e056f2cc954cfec3581729e758909604b3f76
+  subpackages:
+  - buffer
+  - internal/bufferpool
+  - internal/color
+  - internal/exit
+  - internal/multierror
+  - zapcore
+- name: golang.org/x/net
+  version: d212a1ef2de2f5d441c327b8f26cf3ea3ea9f265
+  subpackages:
+  - context
+  - html
+  - html/atom
+  - html/charset
+- name: golang.org/x/sync
+  version: de49d9dcd27d4f764488181bea099dfe6179bcf0
+  subpackages:
+  - errgroup
+- name: golang.org/x/text
+  version: a9a820217f98f7c8a207ec1e45a874e1fe12c478
+  subpackages:
+  - encoding
+  - encoding/charmap
+  - encoding/htmlindex
+  - encoding/internal
+  - encoding/internal/identifier
+  - encoding/japanese
+  - encoding/korean
+  - encoding/simplifiedchinese
+  - encoding/traditionalchinese
+  - encoding/unicode
+  - internal/tag
+  - internal/utf8internal
+  - language
+  - runes
+  - transform
+testImports: []
